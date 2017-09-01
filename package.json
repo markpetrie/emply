@@ -1,0 +1,25 @@
+{
+  "name": "emply",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.12"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && npm run copy",
+    "copy": "rm -rf ../server/public && cp -R ./build ../server/public",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
+    "jest": "^20.1.0-alpha.3",
+    "react-scripts": "^1.0.11",
+    "react-test-renderer": "^15.6.1"
+  },
+  "proxy": "http://localhost:3001/"
+}
