@@ -37,7 +37,7 @@ export default {
     },
 
     delete(category) {
-        return request.delete(`${API_URL}/${id}`)
+        return request.delete(`${API_URL}/${category._id}`)
             .then(
             r => r.body,
             e => { throw e.response.body }

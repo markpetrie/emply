@@ -1,5 +1,5 @@
 
-import * as actions from './constants';
+import * as actions from './categories.reducers';
 import api from '../api/categoriesApi';
 
 
