@@ -1,5 +1,5 @@
 
-import * as actions from './categories.reducers';
+import * as actions from './categories.constants';
 import api from '../api/categoriesApi';
 
 
@@ -28,7 +28,7 @@ export const makeGetCategory = api => category => dispatch => {
 
     dispatch({ type: actions.FETCH_CATEGORY});
 
-    return api.get(id)
+    return api.get(category)
         .then(
             category => {
                 dispatch({ type: actions.FETCHED_CATEGORY, payload: category });

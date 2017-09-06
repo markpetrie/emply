@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CategoriesContainer from './store/CategoriesContainer';
 
 class App extends Component {
   render() {
@@ -9,9 +10,7 @@ class App extends Component {
         <div className="App-header">
           <h2>Budget Tracker</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <CategoriesContainer/>
       </div>
     );
   }

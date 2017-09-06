@@ -14,7 +14,7 @@ export default function Categories({ categories, loading, error, addCategory }) 
                 ))}
             </ul>
             {error && error.map(err => <pre>{err}</pre>)}
-            <AddAlbum onAdd={addAlbum} />
+            <AddCategory onAdd={addCategory} />
         </div>
     );
 }

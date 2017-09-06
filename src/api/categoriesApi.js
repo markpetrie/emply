@@ -29,7 +29,7 @@ export default {
     },
 
     update(category) {
-        return request.put(`${API_URL}/${id}`, category)
+        return request.put(`${API_URL}/${category._id}`, category)
             .then(
             r => r.body,
             e => { throw e.response.body }
