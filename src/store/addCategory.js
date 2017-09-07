@@ -7,13 +7,13 @@ export default function AddCategory({ onAdd }) {
             e.preventDefault();
             onAdd({
                 name: e.target.elements.name.value,
-                budget: e.target.elements.budget.value,
+                amount: e.target.elements.amount.value,
                 department: e.target.elements.department.value
             });
         }}>
             <input required name="name" />
-            <input required budget="budget" />
-            <input department="department" />
+            <input required name="amount" />
+            <input name="department" />
             <button type="submit">Add</button>
         </form>
     );

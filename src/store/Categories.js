@@ -10,7 +10,7 @@ export default function Categories({ categories, loading, error, addCategory }) 
         <div>
             <ul>
                 {categories.map(category => (
-                    <li key={category._id}>{category.name}</li>
+                    <li key={category._id}>NAME: {category.name}  BUDGET: {category.amount} DEPT: {category.department}</li>
                 ))}
             </ul>
             {error && error.map(err => <pre>{err}</pre>)}
