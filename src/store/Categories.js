@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Dashboard from './Dashboard';
 import AddCategory from './addCategory';
 
 export default function Categories({ categories, loading, error, addCategory }) {
@@ -8,12 +9,13 @@ export default function Categories({ categories, loading, error, addCategory }) 
 
     return (
         <div>
-            <ul>
+            {/* <ul>
                 {categories.map(category => (
                     <li key={category._id}>NAME: {category.name}  BUDGET: {category.amount} DEPT: {category.department}</li>
                 ))}
-            </ul>
+            </ul> */}
             {error && error.map(err => <pre>{err}</pre>)}
+            <Dashboard categories={categories}/>
             <AddCategory onAdd={addCategory} />
         </div>
     );

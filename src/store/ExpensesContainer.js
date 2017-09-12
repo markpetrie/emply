@@ -1,27 +1,27 @@
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getExpenses, getExpense, addExpense, updateExpense, destroyExpense } from './expenses.actions';
 
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import { getCategories, getCategory, addCategory, updateCategory, destroyCategory } from './categories.actions';
+import Expenses from './Expenses';
 
-// import Categories from './Categories';
+function mapStateToProps(state) {
+    return {
+        categories: state.categories,
+        expenses: state.expenses,
+        error: state.expensesError,
+        loading: state.expensesLoading
+    };
+}
 
-// function mapStateToProps(state) {
-//     return {
-//         categories: state.categories,
-//         error: state.categorieError,
-//         loading: state.categoriesLoading
-//     };
-// }
+function mapDispatchToProps(dispatch) {
+    dispatch(getExpenses());
+    return bindActionCreators({ getExpense, addExpense, updateExpense, destroyExpense }, dispatch);
+}
 
-// function mapDispatchToProps(dispatch) {
-//     dispatch(getCategories());
-//     return bindActionCreators({ getCategory, addCategory, updateCategory, destroyCategory }, dispatch);
-// }
+const ExpensesContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Expenses);
 
-// const CategoriesContainer = connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )(Categories);
-
-// export default CategoriesContainer;
+export default ExpensesContainer;

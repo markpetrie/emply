@@ -22,8 +22,8 @@ describe('getCategories', () => {
     });
 
     it('failed get categories', () => {
-        const error = 'the error';
-        const api = { getAll: () => Promise.reject({ error }) };
+        const error = 'FETCHED_CATEGORIES_ERROR';
+        const api = { getAll: () => Promise.reject( error ) };
         const dispatched = [];
         const dispatch = (action) => dispatched.push(action);
 

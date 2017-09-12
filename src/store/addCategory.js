@@ -11,6 +11,7 @@ export default function AddCategory({ onAdd }) {
                 department: e.target.elements.department.value
             });
         }}>
+            <h2>Add New Category</h2>
             <input required name="name" />
             <input required name="amount" />
             <input name="department" />
