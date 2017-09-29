@@ -70,7 +70,7 @@ export const makeUpdateCategory = api => category => dispatch => {
                 dispatch({ type: actions.UPDATED_CATEGORY, payload: saved });
             },
             error => {
-                dispatch({ type: actions.UPDATED_CATEGORY_ERROR, payload: error });
+                dispatch({ type: actions.UPDATED_CATEGORY_ERROR, payload: [] });
         }
     );
 }

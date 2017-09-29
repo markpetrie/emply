@@ -40,7 +40,7 @@ export default {
             );
     },
 
-    update(category) {
+    put(category) {
         return request.put(`${API_URL}/${category._id}`, category)
             .then(
             r => r.body,

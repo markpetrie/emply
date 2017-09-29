@@ -7,10 +7,13 @@ export function categories(state = [], action) {
             return action.payload;
         case actions.CREATED_CATEGORY:
             return [...state, action.payload];
-            // do we need to add case for updated?
+        case actions.UPDATED_CATEGORY:
+            const index = state.findIndex(a => a._id === action.payload._id)
+            if (index === -1) return state;
+            return [...state.splice(index, 1, action.payload)]
         case actions.DESTROYED_CATEGORY: {
             const index = state.findIndex(a => a === action.payload);
-            if(index === -1) return state;
+            if (index === -1) return state;
             return [...state.slice(0, index), ...state.slice(index + 1)];
         }
         default:
@@ -19,7 +22,7 @@ export function categories(state = [], action) {
 }
 
 export function categoriesError(state = null, action) {
-    switch(action.type) {
+    switch (action.type) {
         case actions.FETCHED_CATEGORIES_ERROR:
         case actions.CREATED_CATEGORY_ERROR:
         case actions.FETCHED_CATEGORY_ERROR:
@@ -43,7 +46,7 @@ export function categoriesError(state = null, action) {
 }
 
 export function categoriesLoading(state = false, action) {
-    switch(action.type) {
+    switch (action.type) {
         case actions.FETCH_CATEGORIES:
         case actions.CREATE_CATEGORY:
         case actions.UPDATE_CATEGORY:

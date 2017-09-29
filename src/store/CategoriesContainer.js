@@ -1,4 +1,3 @@
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getCategories, getCategory, addCategory, updateCategory, destroyCategory } from './categories.actions';
