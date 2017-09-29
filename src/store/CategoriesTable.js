@@ -18,64 +18,53 @@ export default class Dashboard extends React.Component {
     }
 
     renderEditable(cellInfo) {
-
+        const data = this.props.categories;
+        const { onUpdate } = this.props;
         return (
-            <div
-                style={{ backgroundColor: "#fafafa" }}
-                contentEditable
-                suppressContentEditableWarning
-            />
+          <div
+            style={{ backgroundColor: "#fafafa" }}
+            contentEditable
+            suppressContentEditableWarning
+            onBlur={e => {
+                console.log('cellInfo baby!', data[cellInfo.index]);
+                data[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
+                onUpdate(data[cellInfo.index]);            
+        }}
+       
+        dangerouslySetInnerHTML={{
+          __html: data[cellInfo.index][cellInfo.column.id]
+        }}
+          />
         );
-    }
+      }
 
     render() {
         const { categories } = this.props;
-        const { onUpdate } = this.props;
+        
         return (
             <div>
                 <h1>Budget Categories</h1>
                 <ReactTable
                     data={categories}
 
-                    getTdProps={(state, rowInfo, column, instance) => {
-                        return {
-                            onBlur: (e) => {
-
-                                onUpdate({
-                                    name: rowInfo.row.name,
-                                    amount: rowInfo.row.amount,
-                                    department: rowInfo.row.department,
-                                    _id: rowInfo.row._id
-                                });
-
-                                console.log({
-                                    name: rowInfo.row.name,
-                                    amount: rowInfo.row.amount,
-                                    department: rowInfo.row.department,
-                                    _id: rowInfo.row._id
-                                });
-                            }
-                        }
-                    }
-                    }
-
                     columns={[{
                         Header: '',
                         columns: [{
                             Header: 'Category',
                             accessor: 'name',             
-
+                            Cell: this.renderEditable
                         },
                         {
                             Header: 'Budget',
                             accessor: 'amount',
-
+                            Cell: this.renderEditable
                         },
                         {
                             Header: 'Department',
                             accessor: 'department',
-
-                        }, {
+                            Cell: this.renderEditable
+                        }, 
+                        {
                             Header: 'ID',
                             accessor: '_id',
                         }]
