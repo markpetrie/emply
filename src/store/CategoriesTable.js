@@ -1,8 +1,4 @@
 import React from "react";
-import { render } from "react-dom";
-
-
-// Import React Table
 import ReactTable from "react-table";
 import { getTdProps } from "react-table";
 import "react-table/react-table.css";
@@ -26,7 +22,6 @@ export default class Dashboard extends React.Component {
             contentEditable
             suppressContentEditableWarning
             onBlur={e => {
-                console.log('cellInfo baby!', data[cellInfo.index]);
                 data[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
                 onUpdate(data[cellInfo.index]);            
         }}
@@ -40,17 +35,19 @@ export default class Dashboard extends React.Component {
 
     render() {
         const { categories } = this.props;
-        
+        const renderCategoryOptions = (category) => (
+            <option key={category.id} value={category.id}>{category.name}</option>
+        )
         return (
             <div>
-                <h1>Budget Categories</h1>
+                <h1>Expense Categories</h1>
                 <ReactTable
                     data={categories}
-
-                    columns={[{
+                    columns={[
+                        {
                         Header: '',
                         columns: [{
-                            Header: 'Category',
+                            Header: 'Expense Category',
                             accessor: 'name',             
                             Cell: this.renderEditable
                         },

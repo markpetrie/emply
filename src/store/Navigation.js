@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink, Route, withRouter } from 'react-router-dom';
 import qs from 'qs';
 

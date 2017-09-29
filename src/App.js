@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
+
 import {
   BrowserRouter as Router,
   Switch,
-  Redirect,
   Route,
-  Link
 } from 'react-router-dom'
 
-import logo from './logo.svg';
 import './App.css';
 import CategoriesContainer from './store/CategoriesContainer';
 import ExpensesContainer from './store/ExpensesContainer';

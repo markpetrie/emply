@@ -3,20 +3,24 @@ import React from 'react';
 import AddExpense from './AddExpense';
 import ExpensesTable from './ExpensesTable';
 
-const err = err => <pre>{err}</pre>;
-
-export default function Expenses({ categories, expenses, loading, error, addExpense }) {
+export default function Expenses({ expenses, loading, error, addExpense, updateExpense, categories }) {
+    
 
     if (loading) return <div>Loading...</div>;
 
     return (
         <div>
-            {error && (Array.isArray(error) ? error.map(err) : err(error))}
-            <div style={{display: 'flex 1', flexFlow: 'row'}}>
-            <ExpensesTable expenses={expenses} categories={categories}/>
-            <br/>
-            <AddExpense onAdd={addExpense} categories={categories}/>
+            <div>
+                {error && error.map(err => <pre>{err}</pre>)}
+                <div style={{ display: 'flex 3', flexFlow: 'row' }}>
+                    <ExpensesTable expenses={expenses} onUpdate={updateExpense} />
+                </div>
+                <div>
+                    <div style={{ display: 'flex 1', flexFlow: 'row' }} />
+                    <AddExpense onAdd={addExpense} />
+                </div>
             </div>
+            <br />
         </div>
-    );
+    )
 }
