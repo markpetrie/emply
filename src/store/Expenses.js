@@ -17,7 +17,7 @@ export default function Expenses({ expenses, loading, error, addExpense, updateE
                 </div>
                 <div>
                     <div style={{ display: 'flex 1', flexFlow: 'row' }} />
-                    <AddExpense onAdd={addExpense} />
+                    <AddExpense onAdd={addExpense} categories={categories}/>
                 </div>
             </div>
             <br />

@@ -2,6 +2,11 @@
 import React from 'react';
 
 export default function addExpense({ onAdd, categories }) {
+
+    const renderCategoryOptions = (category) => (
+        <option key={category._id} value={category._id}>{category.name}</option>
+    )
+
     return (
         <form onSubmit={e => {
             e.preventDefault();
@@ -16,8 +21,13 @@ export default function addExpense({ onAdd, categories }) {
             <label>Name: <input required name="name" /></label>
             <label>Budget: <input required name="date" /></label>
             <label>Amount: <input required name="amount" /></label>
-            <label>Category: <select name="category"  required /></label>
+            <select ref="userInput" required>
+                <option value="">Select</option>
+                {categories.map(renderCategoryOptions)}
+            </select>
             <button>type="submit">Add</button>
         </form >
     );
 }
+
+
