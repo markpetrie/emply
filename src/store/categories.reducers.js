@@ -10,7 +10,7 @@ export function categories(state = [], action) {
         case actions.UPDATED_CATEGORY:
             const index = state.findIndex(a => a._id === action.payload._id)
             if (index === -1) return state;
-            return [...state.splice(index, 1, action.payload)]
+            return [...state.map(category => (category[index]) ? action.payload : category)];
         case actions.DESTROYED_CATEGORY: {
             const index = state.findIndex(a => a === action.payload);
             if (index === -1) return state;
