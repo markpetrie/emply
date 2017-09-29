@@ -40,7 +40,7 @@ export default class Dashboard extends React.Component {
                     getTdProps={(state, rowInfo, column, instance) => {
                         return {
                             onBlur: (e) => {
-                                const { category } = rowInfo.row;
+
                                 onUpdate({
                                     name: rowInfo.row.name,
                                     amount: rowInfo.row.amount,
@@ -63,18 +63,18 @@ export default class Dashboard extends React.Component {
                         Header: '',
                         columns: [{
                             Header: 'Category',
-                            accessor: 'name',
-                            Cell: this.renderEditable
+                            accessor: 'name',             
+
                         },
                         {
                             Header: 'Budget',
                             accessor: 'amount',
-                            Cell: this.renderEditable
+
                         },
                         {
                             Header: 'Department',
                             accessor: 'department',
-                            Cell: this.renderEditable
+
                         }, {
                             Header: 'ID',
                             accessor: '_id',
