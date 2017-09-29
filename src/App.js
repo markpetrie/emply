@@ -23,8 +23,6 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={CategoriesContainer} />
             <Route path="/expenses" component={ExpensesContainer} />
-            {/* <CategoriesContainer/>
-        <ExpensesContainer/> */}
           </Switch>
         </div>
       </Router>

@@ -7,6 +7,10 @@ export function expenses(state = [], action) {
             return action.payload;
         case actions.CREATED_EXPENSE:
             return [...state, action.payload];
+            case actions.UPDATED_EXPENSE:
+            const index = state.findIndex(a => a._id === action.payload._id)
+            if (index === -1) return state;
+            return [...state.map(expense => (expense[index]) ? action.payload : expense)];
         case actions.DESTROYED_EXPENSE: {
             const index = state.findIndex(a => a === action.payload);
             if (index === -1) return state;

@@ -10,7 +10,7 @@ export default function Categories({ categories, loading, error, addCategory, up
     return (
         <div>
             <div>
-                {error && error.map(err => <pre>{err}</pre>)}
+                {error && <pre>{error.toString()}</pre>}
                 <div style={{ display: 'flex 3', flexFlow: 'row' }}>
                     <CategoriesTable categories={categories} onUpdate={updateCategory} />
                 </div>

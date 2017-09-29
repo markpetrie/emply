@@ -40,7 +40,7 @@ export default {
             );
     },
 
-    update(expense) {
+    put(expense) {
         return request.put(`${API_URL}/${expense._id}`, expense)
             .then(
             r => r.body,

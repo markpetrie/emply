@@ -69,9 +69,9 @@ export function makeGetExpenses(api) {
                 dispatch({ type: actions.UPDATED_EXPENSE, payload: saved });
             },
             error => {
-                dispatch({ typed: actions.UPDATED_EXPENSE_ERROR, payload: error });
+                dispatch({ type: actions.UPDATED_EXPENSE_ERROR, payload: [] });
             }
-            );
+        );
     }
     
     export const updateExpense = makeUpdateExpense(api);

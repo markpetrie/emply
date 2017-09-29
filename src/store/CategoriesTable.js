@@ -47,12 +47,12 @@ export default class Dashboard extends React.Component {
                         {
                         Header: '',
                         columns: [{
-                            Header: 'Expense Category',
+                            Header: 'Item',
                             accessor: 'name',             
                             Cell: this.renderEditable
                         },
                         {
-                            Header: 'Budget',
+                            Header: 'Budget Amount',
                             accessor: 'amount',
                             Cell: this.renderEditable
                         },
@@ -62,7 +62,7 @@ export default class Dashboard extends React.Component {
                             Cell: this.renderEditable
                         }, 
                         {
-                            Header: 'ID',
+                            Header: 'Accounting ID',
                             accessor: '_id',
                         }]
                     }]}

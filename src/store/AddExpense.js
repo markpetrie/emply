@@ -19,15 +19,13 @@ export default function addExpense({ onAdd, categories }) {
         }}>
             <h3>Add New Expense</h3>
             <label>Name: <input required name="name" /></label>
-            <label>Budget: <input required name="date" /></label>
+            <label>Date: <input required name="date" /></label>
             <label>Amount: <input required name="amount" /></label>
-            <select ref="userInput" required>
+            <label>Category: <select name="category" required>
                 <option value="">Select</option>
                 {categories.map(renderCategoryOptions)}
-            </select>
-            <button>type="submit">Add</button>
+            </select></label>
+            <button type="submit">Add</button>
         </form >
     );
 }
-
-

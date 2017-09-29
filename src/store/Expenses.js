@@ -11,7 +11,7 @@ export default function Expenses({ expenses, loading, error, addExpense, updateE
     return (
         <div>
             <div>
-                {error && error.map(err => <pre>{err}</pre>)}
+                {error && <pre>{error.toString()}</pre>}
                 <div style={{ display: 'flex 3', flexFlow: 'row' }}>
                     <ExpensesTable expenses={expenses} onUpdate={updateExpense} />
                 </div>
