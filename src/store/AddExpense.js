@@ -16,7 +16,7 @@ export default function addExpense({ onAdd, categories }) {
             <label>Name: <input required name="name" /></label>
             <label>Budget: <input required name="date" /></label>
             <label>Amount: <input required name="amount" /></label>
-            <label>Category: <select name="category" {...this.props.categories._id} required /></label>
+            <label>Category: <select name="category"  required /></label>
             <button>type="submit">Add</button>
         </form >
     );
