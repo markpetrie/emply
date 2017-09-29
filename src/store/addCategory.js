@@ -11,10 +11,10 @@ export default function AddCategory({ onAdd }) {
                 department: e.target.elements.department.value
             });
         }}>
-            <h2>Add New Category</h2>
-            <input required name="name" />
-            <input required name="amount" />
-            <input name="department" />
+            <h3>Add New Category</h3>
+            <label>Name: <input required name="name" /> </label>
+            <label>Budget: <input required name="amount" /> </label>
+            <label>Department: <input name="department" /> </label>
             <button type="submit">Add</button>
         </form>
     );

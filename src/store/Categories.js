@@ -1,7 +1,7 @@
 
 import React from 'react';
-import Dashboard from './Dashboard';
-import AddCategory from './addCategory';
+import AddCategory from './AddCategory';
+import CategoriesTable from './CategoriesTable';
 
 export default function Categories({ categories, loading, error, addCategory }) {
 
@@ -15,8 +15,15 @@ export default function Categories({ categories, loading, error, addCategory }) 
                 ))}
             </ul> */}
             {error && error.map(err => <pre>{err}</pre>)}
-            <Dashboard categories={categories}/>
-            <AddCategory onAdd={addCategory} />
+            <div style={{ display: 'flex 3', flexFlow: 'row' }}>
+                <CategoriesTable categories={categories} />
+            </div>
+            <div>
+                <div style={{ display: 'flex 1', flexFlow: 'row' }}>
+                    <AddCategory onAdd={addCategory} />
+                </div>
+            </div>
+            <br />
         </div>
     );
 }

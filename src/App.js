@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+  Route,
+  Link
+} from 'react-router-dom'
+
 import logo from './logo.svg';
 import './App.css';
 import CategoriesContainer from './store/CategoriesContainer';
 import ExpensesContainer from './store/ExpensesContainer';
+import Navigation from './store/Navigation';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Budget Tracker</h2>
+      <Router>
+        <div className="App">
+          <div className="App-header">
+            <h2>Budget Tracker</h2>
+          </div>
+          <Navigation />
+          <Switch>
+            <Route exact path="/" component={CategoriesContainer} />
+            <Route path="/expenses" component={ExpensesContainer} />
+            {/* <CategoriesContainer/>
+        <ExpensesContainer/> */}
+          </Switch>
         </div>
-        <CategoriesContainer/>
-        <ExpensesContainer/>
-      </div>
+      </Router>
     );
   }
 }
