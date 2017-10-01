@@ -1,33 +1,39 @@
 import React, { Component } from 'react';
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom'
-
+import MainContainer from './main/MainContainer';
 import './App.css';
+import { checkForToken } from './auth/actions';
+import { connect } from 'react-redux';
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+// } from 'react-router-dom'
 import CategoriesContainer from './store/CategoriesContainer';
 import ExpensesContainer from './store/ExpensesContainer';
 import Navigation from './store/Navigation';
 
 class App extends Component {
+  // componentDidMount() {
+  //   this.props.checkForToken();
+  // }
+
   render() {
-    return (
-      <Router>
+
+    return (      
         <div className="App">
-          <div className="App-header">
-            <h2>Budget Tracker</h2>
-          </div>
-          <Navigation />
-          <Switch>
-            <Route exact path="/" component={CategoriesContainer} />
-            <Route path="/expenses" component={ExpensesContainer} />
-          </Switch>
+          <Navigation/>
+          <CategoriesContainer />
+          <ExpensesContainer />
+          {/* <mainContainer/> */}
+         
         </div>
-      </Router>
     );
   }
 }
 
-export default App;
+export default connect(
+  state => ({ user: state.auth.user }),
+  dispatch => ({
+    checkForToken() { return dispatch(checkForToken()); }
+  })
+)(App);
