@@ -3,21 +3,21 @@ import React from 'react';
 import AddExpense from './AddExpense';
 import ExpensesTable from './ExpensesTable';
 
-export default function Expenses({ expenses, loading, error, addExpense, updateExpense, categories }) {
-    
+export default function Expenses(props) {
 
-    if (loading) return <div>Loading...</div>;
+    if (props.loading) return <div>Loading...</div>;
 
     return (
         <div>
             <div>
-                {error && <pre>{error.toString()}</pre>}
+                {props.error && <pre>{props.error.toString()}</pre>}
                 <div style={{ display: 'flex 3', flexFlow: 'row' }}>
-                    <ExpensesTable expenses={expenses} onUpdate={updateExpense} />
+                    <ExpensesTable expenses={props.expenses} onUpdate={props.updateExpense} />
                 </div>
                 <div>
                     <div style={{ display: 'flex 1', flexFlow: 'row' }} />
-                    <AddExpense onAdd={addExpense} categories={categories}/>
+                    <AddExpense onAdd={props.addExpense} categories={props.categories}/>
+
                 </div>
             </div>
             <br />

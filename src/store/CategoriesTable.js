@@ -1,6 +1,5 @@
 import React from "react";
 import ReactTable from "react-table";
-import { getTdProps } from "react-table";
 import "react-table/react-table.css";
 
 export default class Dashboard extends React.Component {
@@ -35,9 +34,7 @@ export default class Dashboard extends React.Component {
 
     render() {
         const { categories } = this.props;
-        const renderCategoryOptions = (category) => (
-            <option key={category.id} value={category.id}>{category.name}</option>
-        )
+        
         return (
             <div>
                 <h1>Expense Categories</h1>

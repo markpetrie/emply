@@ -1,11 +1,10 @@
 import React from "react";
 import ReactTable from "react-table";
-import { getTdProps } from "react-table";
 import "react-table/react-table.css";
 
 export default class ExpensesTable extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             expanded: false,
             data: []
@@ -36,9 +35,6 @@ export default class ExpensesTable extends React.Component {
     render() {
         const { expenses } = this.props;
         const { categories } = this.props;
-        const renderExpenseOptions = (expense) => (
-            <option key={expense.id} value={expense.id}>{expense.name}</option>
-        )
 
         return (
             <div>
