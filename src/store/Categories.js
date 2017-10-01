@@ -1,20 +1,25 @@
 
 import React from 'react';
-import AddCategory from './addCategory';
+import AddCategory from './AddCategory';
+import CategoriesTable from './CategoriesTable';
 
-export default function Categories({ categories, loading, error, addCategory }) {
+export default function Categories({ categories, loading, error, addCategory, updateCategory }) {
 
     if (loading) return <div>Loading...</div>;
 
     return (
         <div>
-            <ul>
-                {categories.map(category => (
-                    <li key={category._id}>{category.name}</li>
-                ))}
-            </ul>
-            {error && error.map(err => <pre>{err}</pre>)}
-            <AddCategory onAdd={addCategory} />
+            <div>
+                {error && <pre>{error.toString()}</pre>}
+                <div style={{ display: 'flex 3', flexFlow: 'row' }}>
+                    <CategoriesTable categories={categories} onUpdate={updateCategory} />
+                </div>
+                <div>
+                    <div style={{ display: 'flex 1', flexFlow: 'row' }} />
+                    <AddCategory onAdd={addCategory} />
+                </div>
+            </div>
+            <br />
         </div>
-    );
+    )
 }

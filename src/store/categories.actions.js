@@ -1,6 +1,6 @@
 
 import * as actions from './categories.constants';
-import api from '../api/categoriesApi';
+import api from '../api/categories';
 
 
 export function makeGetCategories(api) {
@@ -14,7 +14,7 @@ export function makeGetCategories(api) {
                     dispatch({ type: actions.FETCHED_CATEGORIES, payload: categories });
                 },
                 error => {
-                    dispatch({ type: actions.FETCHED_CATEGORIES_ERROR, payload: error.error });
+                    dispatch({ type: actions.FETCHED_CATEGORIES_ERROR, payload: error });
                 }
                 );
         };
@@ -34,7 +34,7 @@ export const makeGetCategory = api => category => dispatch => {
                 dispatch({ type: actions.FETCHED_CATEGORY, payload: category });
             },
             error => {
-                dispatch({ type: actions.FETCHED_CATEGORY_ERROR, payload: error.error });
+                dispatch({ type: actions.FETCHED_CATEGORY_ERROR, payload: error });
             }
         );
 }
@@ -51,8 +51,8 @@ export const makeAddCategory = api => category => dispatch => {
         saved => {
             dispatch({ type: actions.CREATED_CATEGORY, payload: saved });
         },
-        err => {
-            dispatch({ type: actions.CREATED_CATEGORY_ERROR, payload: err });
+        error => {
+            dispatch({ type: actions.CREATED_CATEGORY_ERROR, payload: error });
         }
         );
 }
@@ -69,8 +69,8 @@ export const makeUpdateCategory = api => category => dispatch => {
             saved => {
                 dispatch({ type: actions.UPDATED_CATEGORY, payload: saved });
             },
-            err => {
-                dispatch({ type: actions.UPDATED_CATEGORY_ERROR, payload: err });
+            error => {
+                dispatch({ type: actions.UPDATED_CATEGORY_ERROR, payload: [] });
         }
     );
 }
@@ -87,8 +87,8 @@ export const makeDestroyCategory = api => category => dispatch => {
             success => {
                 dispatch({ type: actions.DESTROYED_CATEGORY, payload: success });
             },
-            err => {
-                dispatch({ type: actions.UPDATED_CATEGORY_ERROR, payload: err });
+            error => {
+                dispatch({ type: actions.UPDATED_CATEGORY_ERROR, payload: error });
             }
         );
 };
